@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "323552791058",
+    "project_id": "m-y-tickets-ranimk",
+    "storage_bucket": "m-y-tickets-ranimk.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:323552791058:android:f9d8a782e4ca1e8da766cb",
+        "android_client_info": {
+          "package_name": "com.mycompany.mytickets"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA1y1hwzorUK8t4snelZ1frHUc3KstgD08"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
