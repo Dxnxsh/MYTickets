@@ -139,7 +139,6 @@ class _NavBarPageState extends State<NavBarPage> {
   Widget build(BuildContext context) {
     final tabs = {
       'Home': HomeWidget(),
-      'Explore': ExploreWidget(),
       'Purchased': PurchasedWidget(),
       'Saved': SavedWidget(),
       'profile': ProfileWidget(),
@@ -171,18 +170,6 @@ class _NavBarPageState extends State<NavBarPage> {
               size: 24.0,
             ),
             label: 'Home',
-            tooltip: '',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.signpost_outlined,
-              size: 24.0,
-            ),
-            activeIcon: Icon(
-              Icons.signpost_sharp,
-              size: 24.0,
-            ),
-            label: 'Explore',
             tooltip: '',
           ),
           BottomNavigationBarItem(

@@ -56,6 +56,11 @@ class EventsRecord extends FirestoreRecord {
   String get genre => _genre ?? '';
   bool hasGenre() => _genre != null;
 
+  // "seatplan" field.
+  String? _seatplan;
+  String get seatplan => _seatplan ?? '';
+  bool hasSeatPlan() => _seatplan != null;
+
   void _initializeFields() {
     _name = snapshotData['name'] as String?;
     _description = snapshotData['description'] as String?;
@@ -65,6 +70,7 @@ class EventsRecord extends FirestoreRecord {
     _imageUrl = snapshotData['image_url'] as String?;
     _artistName = snapshotData['artist_name'] as String?;
     _genre = snapshotData['genre'] as String?;
+    _seatplan = snapshotData['seat_plan'] as String?;
   }
 
   static CollectionReference get collection =>
@@ -109,6 +115,7 @@ Map<String, dynamic> createEventsRecordData({
   String? imageUrl,
   String? artistName,
   String? genre,
+  String? seatplan,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -120,6 +127,7 @@ Map<String, dynamic> createEventsRecordData({
       'image_url': imageUrl,
       'artist_name': artistName,
       'genre': genre,
+      'seat_plan': seatplan,
     }.withoutNulls,
   );
 
@@ -138,7 +146,8 @@ class EventsRecordDocumentEquality implements Equality<EventsRecord> {
         e1?.location == e2?.location &&
         e1?.imageUrl == e2?.imageUrl &&
         e1?.artistName == e2?.artistName &&
-        e1?.genre == e2?.genre;
+        e1?.genre == e2?.genre &&
+        e1?.seatplan == e2?.seatplan;
   }
 
   @override
@@ -150,7 +159,8 @@ class EventsRecordDocumentEquality implements Equality<EventsRecord> {
         e?.location,
         e?.imageUrl,
         e?.artistName,
-        e?.genre
+        e?.genre,
+        e?.seatplan
       ]);
 
   @override

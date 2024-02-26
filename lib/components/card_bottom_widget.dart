@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+
 import 'card_bottom_model.dart';
 export 'card_bottom_model.dart';
 
@@ -50,13 +51,13 @@ class _CardBottomWidgetState extends State<CardBottomWidget> {
 
     return Material(
       color: Colors.transparent,
-      elevation: 5.0,
+      elevation: 5,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.only(
-          bottomLeft: Radius.circular(0.0),
-          bottomRight: Radius.circular(0.0),
-          topLeft: Radius.circular(16.0),
-          topRight: Radius.circular(16.0),
+          bottomLeft: Radius.circular(0),
+          bottomRight: Radius.circular(0),
+          topLeft: Radius.circular(16),
+          topRight: Radius.circular(16),
         ),
       ),
       child: Container(
@@ -64,28 +65,28 @@ class _CardBottomWidgetState extends State<CardBottomWidget> {
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.only(
-            bottomLeft: Radius.circular(0.0),
-            bottomRight: Radius.circular(0.0),
-            topLeft: Radius.circular(16.0),
-            topRight: Radius.circular(16.0),
+            bottomLeft: Radius.circular(0),
+            bottomRight: Radius.circular(0),
+            topLeft: Radius.circular(16),
+            topRight: Radius.circular(16),
           ),
         ),
         child: Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(24.0, 10.0, 24.0, 10.0),
+          padding: EdgeInsetsDirectional.fromSTEB(24, 10, 24, 10),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
               Align(
                 alignment: AlignmentDirectional(-1.00, 0.00),
                 child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 1.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 1),
                   child: Text(
                     'Cart',
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily: 'Outfit',
-                          fontSize: 48.0,
-                          fontWeight: FontWeight.w800,
-                        ),
+                      fontFamily: 'Outfit',
+                      fontSize: 48,
+                      fontWeight: FontWeight.w800,
+                    ),
                   ),
                 ),
               ),
@@ -101,8 +102,8 @@ class _CardBottomWidgetState extends State<CardBottomWidget> {
                       itemBuilder: (context, cartIndex) {
                         final cartItem = cart[cartIndex];
                         return Container(
-                          width: 100.0,
-                          height: 100.0,
+                          width: 100,
+                          height: 100,
                           decoration: BoxDecoration(),
                           child: StreamBuilder<EventTierRecord>(
                             stream: EventTierRecord.getDocument(cartItem),
@@ -111,8 +112,8 @@ class _CardBottomWidgetState extends State<CardBottomWidget> {
                               if (!snapshot.hasData) {
                                 return Center(
                                   child: SizedBox(
-                                    width: 50.0,
-                                    height: 50.0,
+                                    width: 50,
+                                    height: 50,
                                     child: CircularProgressIndicator(
                                       valueColor: AlwaysStoppedAnimation<Color>(
                                         FlutterFlowTheme.of(context).primary,
@@ -128,23 +129,23 @@ class _CardBottomWidgetState extends State<CardBottomWidget> {
                                 children: [
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        15.0, 0.0, 0.0, 0.0),
+                                        15, 0, 0, 0),
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
                                       mainAxisAlignment:
-                                          MainAxisAlignment.center,
+                                      MainAxisAlignment.center,
                                       crossAxisAlignment:
-                                          CrossAxisAlignment.start,
+                                      CrossAxisAlignment.start,
                                       children: [
                                         Text(
                                           rowEventTierRecord.name,
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                fontFamily: 'Readex Pro',
-                                                decoration:
-                                                    TextDecoration.underline,
-                                              ),
+                                            fontFamily: 'Readex Pro',
+                                            decoration:
+                                            TextDecoration.underline,
+                                          ),
                                         ),
                                         Text(
                                           formatNumber(
@@ -163,44 +164,44 @@ class _CardBottomWidgetState extends State<CardBottomWidget> {
                                   Flexible(
                                     child: Align(
                                       alignment:
-                                          AlignmentDirectional(1.00, 0.00),
+                                      AlignmentDirectional(1.00, 0.00),
                                       child: Container(
-                                        width: 180.0,
-                                        height: 100.0,
+                                        width: 180,
+                                        height: 100,
                                         decoration: BoxDecoration(),
                                         child: Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 0.0, 15.0, 0.0),
+                                          EdgeInsetsDirectional.fromSTEB(
+                                              0, 0, 15, 0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.min,
                                             mainAxisAlignment:
-                                                MainAxisAlignment.end,
+                                            MainAxisAlignment.end,
                                             children: [
                                               Align(
                                                 alignment: AlignmentDirectional(
                                                     1.00, 0.00),
                                                 child: Container(
-                                                  width: 105.0,
+                                                  width: 105,
                                                   decoration: BoxDecoration(),
                                                   child: Align(
                                                     alignment:
-                                                        AlignmentDirectional(
-                                                            1.00, 0.00),
+                                                    AlignmentDirectional(
+                                                        1.00, 0.00),
                                                     child: InkWell(
                                                       splashColor:
-                                                          Colors.transparent,
+                                                      Colors.transparent,
                                                       focusColor:
-                                                          Colors.transparent,
+                                                      Colors.transparent,
                                                       hoverColor:
-                                                          Colors.transparent,
+                                                      Colors.transparent,
                                                       highlightColor:
-                                                          Colors.transparent,
+                                                      Colors.transparent,
                                                       onTap: () async {
                                                         setState(() {
                                                           FFAppState()
                                                               .total = FFAppState()
-                                                                  .total +
+                                                              .total +
                                                               functions.negateNum(
                                                                   rowEventTierRecord
                                                                       .price)!;
@@ -208,17 +209,17 @@ class _CardBottomWidgetState extends State<CardBottomWidget> {
                                                         setState(() {
                                                           FFAppState()
                                                               .removeFromCardPayment(
-                                                                  cartItem);
+                                                              cartItem);
                                                         });
                                                       },
                                                       child: Icon(
                                                         Icons
                                                             .delete_forever_rounded,
                                                         color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .secondaryText,
-                                                        size: 30.0,
+                                                        FlutterFlowTheme.of(
+                                                            context)
+                                                            .secondaryText,
+                                                        size: 30,
                                                       ),
                                                     ),
                                                   ),
@@ -254,41 +255,28 @@ class _CardBottomWidgetState extends State<CardBottomWidget> {
                 style: FlutterFlowTheme.of(context).bodyMedium,
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
                 child: FFButtonWidget(
                   onPressed: () async {
-                    context.pushNamed(
-                      'Seat',
-                      queryParameters: {
-                        'p2': serializeParam(
-                          widget.p2,
-                          ParamType.Document,
-                        ),
-                      }.withoutNulls,
-                      extra: <String, dynamic>{
-                        'p2': widget.p2,
-                      },
-                    );
+                    Navigator.pop(context);
                   },
                   text: 'Back to Seat',
                   options: FFButtonOptions(
                     width: double.infinity,
-                    height: 50.0,
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
-                    iconPadding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                    height: 50,
+                    padding: EdgeInsetsDirectional.fromSTEB(24, 0, 24, 0),
+                    iconPadding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                     color: FlutterFlowTheme.of(context).alternate,
                     textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                          fontFamily: 'Readex Pro',
-                          color: FlutterFlowTheme.of(context).secondaryText,
-                        ),
-                    elevation: 3.0,
+                      fontFamily: 'Readex Pro',
+                      color: FlutterFlowTheme.of(context).secondaryText,
+                    ),
+                    elevation: 3,
                     borderSide: BorderSide(
                       color: Colors.transparent,
-                      width: 1.0,
+                      width: 1,
                     ),
-                    borderRadius: BorderRadius.circular(8.0),
+                    borderRadius: BorderRadius.circular(8),
                   ),
                 ),
               ),

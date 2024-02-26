@@ -14,6 +14,7 @@ import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
+
 import 'details_model.dart';
 export 'details_model.dart';
 
@@ -87,18 +88,19 @@ class _DetailsWidgetState extends State<DetailsWidget> {
           mainAxisSize: MainAxisSize.max,
           children: [
             Expanded(
-              child: SingleChildScrollView(
-                child: Column(
-                  mainAxisSize: MainAxisSize.max,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Container(
+              child: Column(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.end,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Expanded(
+                    child: Container(
                       height: MediaQuery.sizeOf(context).height * 0.51,
                       child: Stack(
-                        alignment: AlignmentDirectional(0.0, 0.0),
+                        alignment: AlignmentDirectional(0, 0),
                         children: [
                           Align(
-                            alignment: AlignmentDirectional(0.00, -1.00),
+                            alignment: AlignmentDirectional(0, -1),
                             child: Hero(
                               tag: widget.p1!.imageUrl,
                               transitionOnUserGestures: true,
@@ -116,28 +118,28 @@ class _DetailsWidgetState extends State<DetailsWidget> {
                             children: [
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    20.0, 0.0, 20.0, 0.0),
+                                    20, 0, 20, 0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
+                                  MainAxisAlignment.spaceBetween,
                                   children: [
                                     Align(
                                       alignment:
-                                          AlignmentDirectional(0.85, -0.40),
+                                      AlignmentDirectional(0.85, -0.4),
                                       child: Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 50.0, 0.0, 0.0),
+                                            0, 50, 0, 0),
                                         child: FlutterFlowIconButton(
                                           borderColor: Colors.transparent,
-                                          borderRadius: 30.0,
-                                          borderWidth: 1.0,
-                                          buttonSize: 40.0,
+                                          borderRadius: 30,
+                                          borderWidth: 1,
+                                          buttonSize: 40,
                                           fillColor: Color(0x7F0F1113),
                                           icon: Icon(
                                             Icons.chevron_left_rounded,
                                             color: Colors.white,
-                                            size: 20.0,
+                                            size: 20,
                                           ),
                                           onPressed: () async {
                                             context.safePop();
@@ -153,262 +155,329 @@ class _DetailsWidgetState extends State<DetailsWidget> {
                         ],
                       ),
                     ),
-                    Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(24.0, 10.0, 24.0, 0.0),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          Text(
-                            valueOrDefault<String>(
-                              widget.p1?.name,
-                              'name',
-                            ),
-                            textAlign: TextAlign.start,
-                            style: FlutterFlowTheme.of(context)
-                                .headlineMedium
-                                .override(
-                                  fontFamily: 'Outfit',
-                                  color: Color(0xFFFCF9F2),
-                                  fontSize: 29.0,
-                                  fontWeight: FontWeight.w800,
-                                ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(24.0, 6.0, 24.0, 0.0),
-                      child: SingleChildScrollView(
+                  ),
+                  Align(
+                    alignment: AlignmentDirectional(0, 1),
+                    child: Container(
+                      decoration: BoxDecoration(),
+                      child: Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(24, 10, 24, 0),
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
-                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             Align(
-                              alignment: AlignmentDirectional(-1.00, 0.00),
+                              alignment: AlignmentDirectional(-1, 0),
                               child: Text(
                                 valueOrDefault<String>(
-                                  widget.p1?.description,
-                                  'desc',
+                                  widget.p1?.name,
+                                  'name',
                                 ),
                                 textAlign: TextAlign.start,
                                 style: FlutterFlowTheme.of(context)
-                                    .labelSmall
+                                    .headlineMedium
                                     .override(
-                                      fontFamily: 'Readex Pro',
-                                      fontSize: 16.0,
-                                      fontWeight: FontWeight.w200,
+                                  fontFamily: 'Outfit',
+                                  color: Color(0xFFFCF9F2),
+                                  fontSize: 29,
+                                  fontWeight: FontWeight.w800,
+                                ),
+                              ),
+                            ),
+                            Align(
+                              alignment: AlignmentDirectional(-1, 0),
+                              child: Container(
+                                constraints: BoxConstraints(
+                                  maxHeight:
+                                  MediaQuery.sizeOf(context).height * 0.1,
+                                ),
+                                decoration: BoxDecoration(),
+                                child: Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0, 6, 0, 0),
+                                  child: SingleChildScrollView(
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      crossAxisAlignment:
+                                      CrossAxisAlignment.start,
+                                      children: [
+                                        Align(
+                                          alignment:
+                                          AlignmentDirectional(-1, 0),
+                                          child: Text(
+                                            valueOrDefault<String>(
+                                              widget.p1?.description,
+                                              'desc',
+                                            ),
+                                            textAlign: TextAlign.start,
+                                            style: FlutterFlowTheme.of(context)
+                                                .labelSmall
+                                                .override(
+                                              fontFamily: 'Readex Pro',
+                                              fontSize: 16,
+                                              fontWeight: FontWeight.w200,
+                                            ),
+                                          ),
+                                        ),
+                                      ],
                                     ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                            Align(
+                              alignment: AlignmentDirectional(-1, 0),
+                              child: Padding(
+                                padding:
+                                EdgeInsetsDirectional.fromSTEB(0, 6, 0, 0),
+                                child: Text(
+                                  'Seating Plan',
+                                  style: FlutterFlowTheme.of(context)
+                                      .labelSmall
+                                      .override(
+                                    fontFamily: 'Readex Pro',
+                                    color: Colors.white,
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                ),
+                              ),
+                            ),
+                            Padding(
+                              padding:
+                              EdgeInsetsDirectional.fromSTEB(0, 5, 0, 5),
+                              child: InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                onTap: () async {
+                                  await Navigator.push(
+                                    context,
+                                    PageTransition(
+                                      type: PageTransitionType.fade,
+                                      child: FlutterFlowExpandedImageView(
+                                        image: Image.network(
+                                          widget.p1!.seatplan,
+                                          fit: BoxFit.contain,
+                                        ),
+                                        allowRotation: false,
+                                        tag: widget.p1!.seatplan,
+                                        useHeroAnimation: true,
+                                      ),
+                                    ),
+                                  );
+                                },
+                                child: Hero(
+                                  tag: widget.p1!.seatplan,
+                                  transitionOnUserGestures: true,
+                                  child: ClipRRect(
+                                    borderRadius: BorderRadius.circular(10),
+                                    child: Image.network(
+                                      widget.p1!.seatplan,
+                                      width: double.infinity,
+                                      height: 113,
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                            Row(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                Flexible(
+                                  child: Align(
+                                    alignment: AlignmentDirectional(-1, 0),
+                                    child: StreamBuilder<List<FavRecord>>(
+                                      stream: queryFavRecord(
+                                        parent: currentUserReference,
+                                        singleRecord: true,
+                                      ),
+                                      builder: (context, snapshot) {
+                                        // Customize what your widget looks like when it's loading.
+                                        if (!snapshot.hasData) {
+                                          return Center(
+                                            child: SizedBox(
+                                              width: 50,
+                                              height: 50,
+                                              child: CircularProgressIndicator(
+                                                valueColor:
+                                                AlwaysStoppedAnimation<
+                                                    Color>(
+                                                  FlutterFlowTheme.of(context)
+                                                      .primary,
+                                                ),
+                                              ),
+                                            ),
+                                          );
+                                        }
+                                        List<FavRecord>
+                                        toggleIconFavRecordList =
+                                        snapshot.data!;
+                                        final toggleIconFavRecord =
+                                        toggleIconFavRecordList.isNotEmpty
+                                            ? toggleIconFavRecordList.first
+                                            : null;
+                                        return ToggleIcon(
+                                          onPressed: () async {
+                                            setState(() =>
+                                            _model.isFav = !_model.isFav);
+                                            if (_model.isFav == true) {
+                                              await FavRecord.createDoc(
+                                                  currentUserReference!)
+                                                  .set(createFavRecordData(
+                                                isFav: _model.isFav,
+                                                event: widget.p1?.reference,
+                                              ));
+                                            } else {
+                                              await toggleIconFavRecord!
+                                                  .reference
+                                                  .delete();
+                                            }
+                                          },
+                                          value: _model.isFav,
+                                          onIcon: Icon(
+                                            Icons.favorite_rounded,
+                                            color: Color(0xFFFCF9F2),
+                                            size: 25,
+                                          ),
+                                          offIcon: Icon(
+                                            Icons.favorite_border_rounded,
+                                            color: Color(0xFFFCF9F2),
+                                            size: 25,
+                                          ),
+                                        );
+                                      },
+                                    ),
+                                  ),
+                                ),
+                                Flexible(
+                                  child: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0, 10, 0, 0),
+                                    child: Text(
+                                      'Starting From',
+                                      textAlign: TextAlign.end,
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                        fontFamily: 'Readex Pro',
+                                        color: Color(0xFFFCF9F2),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                Align(
+                                  alignment: AlignmentDirectional(1, 0),
+                                  child: StreamBuilder<List<EventTierRecord>>(
+                                    stream: queryEventTierRecord(
+                                      parent: widget.p1?.reference,
+                                      queryBuilder: (eventTierRecord) =>
+                                          eventTierRecord.orderBy('price'),
+                                    ),
+                                    builder: (context, snapshot) {
+                                      // Customize what your widget looks like when it's loading.
+                                      if (!snapshot.hasData) {
+                                        return Center(
+                                          child: SizedBox(
+                                            width: 50,
+                                            height: 50,
+                                            child: CircularProgressIndicator(
+                                              valueColor:
+                                              AlwaysStoppedAnimation<Color>(
+                                                FlutterFlowTheme.of(context)
+                                                    .primary,
+                                              ),
+                                            ),
+                                          ),
+                                        );
+                                      }
+                                      List<EventTierRecord>
+                                      textEventTierRecordList =
+                                      snapshot.data!;
+                                      return Text(
+                                        valueOrDefault<String>(
+                                          formatNumber(
+                                            textEventTierRecordList.first.price,
+                                            formatType: FormatType.custom,
+                                            currency: 'RM',
+                                            format: '',
+                                            locale: '',
+                                          ),
+                                          'price',
+                                        ),
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                          fontFamily: 'Readex Pro',
+                                          color: Color(0xFFFCF9F2),
+                                          fontSize: 24,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      );
+                                    },
+                                  ),
+                                ),
+                              ],
+                            ),
+                            Align(
+                              alignment: AlignmentDirectional(0, 1),
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0, 10, 0, 10),
+                                child: FFButtonWidget(
+                                  onPressed: () async {
+                                    context.pushNamed(
+                                      'Seat',
+                                      queryParameters: {
+                                        'p2': serializeParam(
+                                          widget.p1,
+                                          ParamType.Document,
+                                        ),
+                                      }.withoutNulls,
+                                      extra: <String, dynamic>{
+                                        'p2': widget.p1,
+                                        kTransitionInfoKey: TransitionInfo(
+                                          hasTransition: true,
+                                          transitionType:
+                                          PageTransitionType.rightToLeft,
+                                        ),
+                                      },
+                                    );
+                                  },
+                                  text: 'Pick you seat',
+                                  options: FFButtonOptions(
+                                    width: double.infinity,
+                                    height: 50,
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        24, 0, 24, 0),
+                                    iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                        0, 0, 0, 0),
+                                    color: FlutterFlowTheme.of(context).primary,
+                                    textStyle: FlutterFlowTheme.of(context)
+                                        .titleSmall
+                                        .override(
+                                      fontFamily: 'Readex Pro',
+                                      color: Colors.white,
+                                    ),
+                                    elevation: 3,
+                                    borderSide: BorderSide(
+                                      color: Colors.transparent,
+                                      width: 1,
+                                    ),
+                                    borderRadius: BorderRadius.circular(12),
+                                  ),
+                                ),
                               ),
                             ),
                           ],
                         ),
                       ),
                     ),
-                    Align(
-                      alignment: AlignmentDirectional(-1.00, 0.00),
-                      child: Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(24.0, 6.0, 0.0, 0.0),
-                        child: Text(
-                          'Seating Plan',
-                          style:
-                              FlutterFlowTheme.of(context).labelSmall.override(
-                                    fontFamily: 'Readex Pro',
-                                    color: Colors.white,
-                                    fontSize: 20.0,
-                                    fontWeight: FontWeight.w600,
-                                  ),
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(24.0, 5.0, 24.0, 5.0),
-                      child: InkWell(
-                        splashColor: Colors.transparent,
-                        focusColor: Colors.transparent,
-                        hoverColor: Colors.transparent,
-                        highlightColor: Colors.transparent,
-                        onTap: () async {
-                          await Navigator.push(
-                            context,
-                            PageTransition(
-                              type: PageTransitionType.fade,
-                              child: FlutterFlowExpandedImageView(
-                                image: Image.network(
-                                  'https://picsum.photos/seed/514/600',
-                                  fit: BoxFit.contain,
-                                ),
-                                allowRotation: false,
-                                tag: 'imageTag2',
-                                useHeroAnimation: true,
-                              ),
-                            ),
-                          );
-                        },
-                        child: Hero(
-                          tag: 'imageTag2',
-                          transitionOnUserGestures: true,
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(10.0),
-                            child: Image.network(
-                              'https://picsum.photos/seed/514/600',
-                              width: double.infinity,
-                              height: 113.0,
-                              fit: BoxFit.cover,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          StreamBuilder<List<FavRecord>>(
-                            stream: queryFavRecord(
-                              parent: currentUserReference,
-                              singleRecord: true,
-                            ),
-                            builder: (context, snapshot) {
-                              // Customize what your widget looks like when it's loading.
-                              if (!snapshot.hasData) {
-                                return Center(
-                                  child: SizedBox(
-                                    width: 50.0,
-                                    height: 50.0,
-                                    child: CircularProgressIndicator(
-                                      valueColor: AlwaysStoppedAnimation<Color>(
-                                        FlutterFlowTheme.of(context).primary,
-                                      ),
-                                    ),
-                                  ),
-                                );
-                              }
-                              List<FavRecord> toggleIconFavRecordList =
-                                  snapshot.data!;
-                              final toggleIconFavRecord =
-                                  toggleIconFavRecordList.isNotEmpty
-                                      ? toggleIconFavRecordList.first
-                                      : null;
-                              return ToggleIcon(
-                                onPressed: () async {
-                                  setState(() => _model.isFav = !_model.isFav);
-                                  if (_model.isFav == true) {
-                                    await FavRecord.createDoc(
-                                            currentUserReference!)
-                                        .set(createFavRecordData(
-                                      isFav: _model.isFav,
-                                      event: widget.p1?.reference,
-                                    ));
-                                  } else {
-                                    await toggleIconFavRecord!.reference
-                                        .delete();
-                                  }
-                                },
-                                value: _model.isFav,
-                                onIcon: Icon(
-                                  Icons.favorite_rounded,
-                                  color: Color(0xFFFCF9F2),
-                                  size: 25.0,
-                                ),
-                                offIcon: Icon(
-                                  Icons.favorite_border_rounded,
-                                  color: Color(0xFFFCF9F2),
-                                  size: 25.0,
-                                ),
-                              );
-                            },
-                          ),
-                          Flexible(
-                            child: Align(
-                              alignment: AlignmentDirectional(3.00, 0.00),
-                              child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 10.0, 0.0, 0.0),
-                                child: Text(
-                                  'Starting From',
-                                  textAlign: TextAlign.end,
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: 'Readex Pro',
-                                        color: Color(0xFFFCF9F2),
-                                      ),
-                                ),
-                              ),
-                            ),
-                          ),
-                          Flexible(
-                            child: Align(
-                              alignment: AlignmentDirectional(1.00, 0.00),
-                              child: Text(
-                                'RM200',
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-                                      fontFamily: 'Readex Pro',
-                                      color: Color(0xFFFCF9F2),
-                                      fontSize: 24.0,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(24.0, 10.0, 24.0, 0.0),
-                      child: FFButtonWidget(
-                        onPressed: () async {
-                          context.pushNamed(
-                            'Seat',
-                            queryParameters: {
-                              'p2': serializeParam(
-                                widget.p1,
-                                ParamType.Document,
-                              ),
-                            }.withoutNulls,
-                            extra: <String, dynamic>{
-                              'p2': widget.p1,
-                              kTransitionInfoKey: TransitionInfo(
-                                hasTransition: true,
-                                transitionType: PageTransitionType.rightToLeft,
-                              ),
-                            },
-                          );
-                        },
-                        text: 'Pick you seat',
-                        options: FFButtonOptions(
-                          width: double.infinity,
-                          height: 50.0,
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              24.0, 0.0, 24.0, 0.0),
-                          iconPadding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 0.0),
-                          color: FlutterFlowTheme.of(context).primary,
-                          textStyle:
-                              FlutterFlowTheme.of(context).titleSmall.override(
-                                    fontFamily: 'Readex Pro',
-                                    color: Colors.white,
-                                  ),
-                          elevation: 3.0,
-                          borderSide: BorderSide(
-                            color: Colors.transparent,
-                            width: 1.0,
-                          ),
-                          borderRadius: BorderRadius.circular(12.0),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             ),
           ],

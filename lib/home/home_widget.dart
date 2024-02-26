@@ -15,6 +15,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:text_search/text_search.dart';
+import 'package:loop_page_view/loop_page_view.dart';
 import 'home_model.dart';
 export 'home_model.dart';
 
@@ -38,10 +39,10 @@ class _HomeWidgetState extends State<HomeWidget> {
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       _model.instantTimer = InstantTimer.periodic(
-        duration: Duration(milliseconds: 10000),
+        duration: Duration(milliseconds: 8000),
         callback: (timer) async {
-          if (_model.isShowFullList == false) {
-            await _model.pageViewController?.nextPage(
+          if (_model.isShowFullList == true) {
+            await _model.loopController?.nextPage(
               duration: Duration(milliseconds: 300),
               curve: Curves.ease,
             );
@@ -683,7 +684,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                         hoverColor: Colors.transparent,
                                         highlightColor: Colors.transparent,
                                         onTap: () async {
-                                          await _model.pageViewController
+                                          await _model.loopController
                                               ?.animateToPage(
                                             0,
                                             duration:
@@ -733,25 +734,18 @@ class _HomeWidgetState extends State<HomeWidget> {
                                               return Container(
                                                 width: double.infinity,
                                                 height: 500.0,
-                                                child: PageView.builder(
-                                                  controller: _model
-                                                          .pageViewController ??=
-                                                      PageController(
-                                                          initialPage: min(
-                                                              0,
-                                                              pageViewNewsRecordList
-                                                                      .length -
-                                                                  1)),
+                                                child: LoopPageView.builder(
+                                                  controller: _model.loopController,
+                                                  itemCount:
+                                                  pageViewNewsRecordList
+                                                      .length,
                                                   scrollDirection:
                                                       Axis.horizontal,
-                                                  itemCount:
-                                                      pageViewNewsRecordList
-                                                          .length,
                                                   itemBuilder:
-                                                      (context, pageViewIndex) {
+                                                      (context, index) {
                                                     final pageViewNewsRecord =
                                                         pageViewNewsRecordList[
-                                                            pageViewIndex];
+                                                            index];
                                                     return Stack(
                                                       children: [
                                                         Align(

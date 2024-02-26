@@ -16,6 +16,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:text_search/text_search.dart';
+import 'package:loop_page_view/loop_page_view.dart';
+
 
 class HomeModel extends FlutterFlowModel<HomeWidget> {
   ///  Local state fields for this page.
@@ -32,13 +34,9 @@ class HomeModel extends FlutterFlowModel<HomeWidget> {
   String? Function(BuildContext, String?)? textControllerValidator;
   List<EventsRecord> simpleSearchResults = [];
   // State field(s) for PageView widget.
-  PageController? pageViewController;
-
-  int get pageViewCurrentIndex => pageViewController != null &&
-          pageViewController!.hasClients &&
-          pageViewController!.page != null
-      ? pageViewController!.page!.round()
-      : 0;
+  LoopPageController? loopController = LoopPageController(
+      scrollMode: LoopScrollMode.shortest,
+      activationMode: LoopActivationMode.immediate);
 
   /// Initialization and disposal methods.
 

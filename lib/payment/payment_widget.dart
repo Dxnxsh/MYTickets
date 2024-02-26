@@ -3,11 +3,13 @@ import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+
 import 'payment_model.dart';
 export 'payment_model.dart';
 
@@ -64,7 +66,7 @@ class _PaymentWidgetState extends State<PaymentWidget> {
         body: SafeArea(
           top: true,
           child: Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(24.0, 5.0, 24.0, 0.0),
+            padding: EdgeInsetsDirectional.fromSTEB(24, 5, 24, 0),
             child: Column(
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.center,
@@ -77,37 +79,36 @@ class _PaymentWidgetState extends State<PaymentWidget> {
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 18.0),
+                        padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 18),
                         child: ClipRRect(
-                          borderRadius: BorderRadius.circular(10.0),
+                          borderRadius: BorderRadius.circular(10),
                           child: Container(
                             width: double.infinity,
-                            height: 160.0,
+                            height: MediaQuery.sizeOf(context).height * 0.19,
                             decoration: BoxDecoration(
                               color: FlutterFlowTheme.of(context)
                                   .secondaryBackground,
-                              borderRadius: BorderRadius.circular(10.0),
+                              borderRadius: BorderRadius.circular(10),
                             ),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               children: [
                                 ClipRRect(
                                   borderRadius: BorderRadius.only(
-                                    bottomLeft: Radius.circular(10.0),
-                                    bottomRight: Radius.circular(0.0),
-                                    topLeft: Radius.circular(10.0),
-                                    topRight: Radius.circular(0.0),
+                                    bottomLeft: Radius.circular(10),
+                                    bottomRight: Radius.circular(0),
+                                    topLeft: Radius.circular(10),
+                                    topRight: Radius.circular(0),
                                   ),
                                   child: Image.network(
                                     widget.p3!.imageUrl,
-                                    width: 140.0,
-                                    height: 200.0,
+                                    width: 140,
+                                    height: 200,
                                     fit: BoxFit.cover,
                                   ),
                                 ),
                                 Container(
-                                  width: 185.0,
+                                  width: 185,
                                   height: double.infinity,
                                   decoration: BoxDecoration(
                                     color: FlutterFlowTheme.of(context)
@@ -115,32 +116,32 @@ class _PaymentWidgetState extends State<PaymentWidget> {
                                   ),
                                   child: Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        10.0, 10.0, 10.0, 10.0),
+                                        10, 10, 10, 10),
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
                                       crossAxisAlignment:
-                                          CrossAxisAlignment.start,
+                                      CrossAxisAlignment.start,
                                       children: [
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 0.0, 0.0, 8.0),
+                                          EdgeInsetsDirectional.fromSTEB(
+                                              0, 0, 0, 8),
                                           child: Text(
                                             dateTimeFormat('MMMMEEEEd',
                                                 widget.p3!.startTime!),
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
-                                                  fontFamily: 'Readex Pro',
-                                                  fontSize: 13.0,
-                                                ),
+                                              fontFamily: 'Readex Pro',
+                                              fontSize: 13,
+                                            ),
                                           ),
                                         ),
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 0.0, 0.0, 4.0),
-                                          child: Text(
+                                          EdgeInsetsDirectional.fromSTEB(
+                                              0, 0, 0, 4),
+                                          child: AutoSizeText(
                                             valueOrDefault<String>(
                                               widget.p3?.name,
                                               'name',
@@ -148,9 +149,9 @@ class _PaymentWidgetState extends State<PaymentWidget> {
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
-                                                  fontFamily: 'Readex Pro',
-                                                  fontSize: 16.0,
-                                                ),
+                                              fontFamily: 'Readex Pro',
+                                              fontSize: 16,
+                                            ),
                                           ),
                                         ),
                                         Text(
@@ -161,9 +162,9 @@ class _PaymentWidgetState extends State<PaymentWidget> {
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                fontFamily: 'Readex Pro',
-                                                fontSize: 13.0,
-                                              ),
+                                            fontFamily: 'Readex Pro',
+                                            fontSize: 13,
+                                          ),
                                         ),
                                         Flexible(
                                           child: Align(
@@ -178,13 +179,13 @@ class _PaymentWidgetState extends State<PaymentWidget> {
                                                 locale: 'en_MY',
                                               ),
                                               style: FlutterFlowTheme.of(
-                                                      context)
+                                                  context)
                                                   .bodyMedium
                                                   .override(
-                                                    fontFamily: 'Readex Pro',
-                                                    fontSize: 18.0,
-                                                    fontWeight: FontWeight.bold,
-                                                  ),
+                                                fontFamily: 'Readex Pro',
+                                                fontSize: 18,
+                                                fontWeight: FontWeight.bold,
+                                              ),
                                             ),
                                           ),
                                         ),
@@ -197,79 +198,277 @@ class _PaymentWidgetState extends State<PaymentWidget> {
                           ),
                         ),
                       ),
-                      Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 15.0),
-                        child: Container(
-                          width: double.infinity,
-                          height: 189.0,
-                          decoration: BoxDecoration(
-                            color: FlutterFlowTheme.of(context)
-                                .secondaryBackground,
-                            borderRadius: BorderRadius.circular(10.0),
-                          ),
-                          child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                24.0, 24.0, 24.0, 24.0),
-                            child: Column(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                Align(
-                                  alignment: AlignmentDirectional(-1.00, 0.00),
-                                  child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 0.0, 20.0),
-                                    child: Text(
-                                      'Price details',
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            fontFamily: 'Readex Pro',
-                                            fontSize: 20.0,
-                                            fontWeight: FontWeight.w600,
-                                          ),
+                      Flexible(
+                        child: Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 15),
+                          child: Container(
+                            width: double.infinity,
+                            decoration: BoxDecoration(
+                              color: FlutterFlowTheme.of(context)
+                                  .secondaryBackground,
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            child: Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  24, 24, 24, 24),
+                              child: Column(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  Align(
+                                    alignment:
+                                    AlignmentDirectional(-1.00, 0.00),
+                                    child: Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0, 0, 0, 20),
+                                      child: Text(
+                                        'Price details',
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                          fontFamily: 'Readex Pro',
+                                          fontSize: 20,
+                                          fontWeight: FontWeight.w600,
+                                        ),
+                                      ),
                                     ),
                                   ),
-                                ),
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 0.0, 16.0),
-                                  child: Row(
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0, 0, 0, 16),
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        Align(
+                                          alignment:
+                                          AlignmentDirectional(-1.00, 0.00),
+                                          child: Text(
+                                            'Total ticket price',
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                              fontFamily: 'Readex Pro',
+                                              color: Color(0xFF7D7F88),
+                                              fontSize: 16,
+                                            ),
+                                          ),
+                                        ),
+                                        Flexible(
+                                          child: Align(
+                                            alignment: AlignmentDirectional(
+                                                1.00, 0.00),
+                                            child: Text(
+                                              formatNumber(
+                                                FFAppState().total,
+                                                formatType: FormatType.custom,
+                                                currency: 'RM ',
+                                                format: '0.00',
+                                                locale: 'en_MY',
+                                              ),
+                                              style: FlutterFlowTheme.of(
+                                                  context)
+                                                  .bodyMedium
+                                                  .override(
+                                                fontFamily: 'Readex Pro',
+                                                color: Color(0xFF1A1E25),
+                                                fontSize: 16,
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0, 0, 0, 16),
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        Align(
+                                          alignment:
+                                          AlignmentDirectional(-1.00, 0.00),
+                                          child: Text(
+                                            'Service fee',
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                              fontFamily: 'Readex Pro',
+                                              color: Color(0xFF7D7F88),
+                                              fontSize: 16,
+                                            ),
+                                          ),
+                                        ),
+                                        Flexible(
+                                          child: Align(
+                                            alignment: AlignmentDirectional(
+                                                1.00, 0.00),
+                                            child: Text(
+                                              'RM 20.00',
+                                              style: FlutterFlowTheme.of(
+                                                  context)
+                                                  .bodyMedium
+                                                  .override(
+                                                fontFamily: 'Readex Pro',
+                                                color: Color(0xFF1A1E25),
+                                                fontSize: 16,
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  Row(
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
                                       Align(
                                         alignment:
-                                            AlignmentDirectional(-1.00, 0.00),
+                                        AlignmentDirectional(-1.00, 0.00),
                                         child: Text(
-                                          'Total ticket price',
+                                          'Total price',
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                fontFamily: 'Readex Pro',
-                                                color: Color(0xFF7D7F88),
-                                                fontSize: 16.0,
-                                              ),
+                                            fontFamily: 'Readex Pro',
+                                            color: Color(0xFF1A1E25),
+                                            fontSize: 16,
+                                            fontWeight: FontWeight.bold,
+                                          ),
                                         ),
                                       ),
                                       Flexible(
                                         child: Align(
                                           alignment:
-                                              AlignmentDirectional(1.00, 0.00),
+                                          AlignmentDirectional(1.00, 0.00),
                                           child: Text(
-                                            formatNumber(
-                                              FFAppState().total,
-                                              formatType: FormatType.custom,
-                                              currency: 'RM ',
-                                              format: '0.00',
-                                              locale: 'en_MY',
+                                            valueOrDefault<String>(
+                                              formatNumber(
+                                                FFAppState().total + 20,
+                                                formatType: FormatType.custom,
+                                                currency: 'RM ',
+                                                format: '0.00',
+                                                locale: 'en_MY',
+                                              ),
+                                              '0.00',
                                             ),
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
+                                              fontFamily: 'Readex Pro',
+                                              color: Color(0xFF0068C9),
+                                              fontSize: 16,
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                      Flexible(
+                        child: Container(
+                          width: double.infinity,
+                          decoration: BoxDecoration(
+                            color: FlutterFlowTheme.of(context)
+                                .secondaryBackground,
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          child: Padding(
+                            padding:
+                            EdgeInsetsDirectional.fromSTEB(24, 24, 24, 24),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.min,
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                Align(
+                                  alignment: AlignmentDirectional(-1.00, 0.00),
+                                  child: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0, 0, 0, 27),
+                                    child: Text(
+                                      'Pay with',
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                        fontFamily: 'Readex Pro',
+                                        color: Color(0xFF1A1E25),
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.w600,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0, 0, 0, 10),
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      Align(
+                                        alignment:
+                                        AlignmentDirectional(-1.00, -1.00),
+                                        child: Padding(
+                                          padding:
+                                          EdgeInsetsDirectional.fromSTEB(
+                                              0, 0, 10, 20),
+                                          child: Icon(
+                                            Icons.credit_card_rounded,
+                                            color: FlutterFlowTheme.of(context)
+                                                .secondaryText,
+                                            size: 24,
+                                          ),
+                                        ),
+                                      ),
+                                      Column(
+                                        mainAxisSize: MainAxisSize.max,
+                                        crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                        children: [
+                                          Align(
+                                            alignment: AlignmentDirectional(
+                                                -1.00, -1.00),
+                                            child: Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(0, 0, 0, 6),
+                                              child: Text(
+                                                'Debit card',
+                                                style: FlutterFlowTheme.of(
+                                                    context)
+                                                    .bodyMedium
+                                                    .override(
                                                   fontFamily: 'Readex Pro',
                                                   color: Color(0xFF1A1E25),
-                                                  fontSize: 16.0,
+                                                  fontSize: 16,
                                                 ),
+                                              ),
+                                            ),
+                                          ),
+                                          Text(
+                                            'Accepting Visa, Mastercard, etc',
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                              fontFamily: 'Readex Pro',
+                                              color: Color(0xFF7D7F88),
+                                              fontSize: 13,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                      Flexible(
+                                        child: Align(
+                                          alignment:
+                                          AlignmentDirectional(1.00, 0.00),
+                                          child: Icon(
+                                            Icons.add_circle_outline,
+                                            color: FlutterFlowTheme.of(context)
+                                                .secondaryText,
+                                            size: 24,
                                           ),
                                         ),
                                       ),
@@ -278,37 +477,53 @@ class _PaymentWidgetState extends State<PaymentWidget> {
                                 ),
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 0.0, 16.0),
+                                      0, 0, 0, 10),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
                                       Align(
                                         alignment:
-                                            AlignmentDirectional(-1.00, 0.00),
-                                        child: Text(
-                                          'Service fee',
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily: 'Readex Pro',
-                                                color: Color(0xFF7D7F88),
-                                                fontSize: 16.0,
-                                              ),
+                                        AlignmentDirectional(-1.00, -1.00),
+                                        child: Padding(
+                                          padding:
+                                          EdgeInsetsDirectional.fromSTEB(
+                                              0, 0, 10, 7),
+                                          child: Icon(
+                                            Icons.attach_money_outlined,
+                                            color: FlutterFlowTheme.of(context)
+                                                .secondaryText,
+                                            size: 24,
+                                          ),
+                                        ),
+                                      ),
+                                      Align(
+                                        alignment:
+                                        AlignmentDirectional(-1.00, -1.00),
+                                        child: Padding(
+                                          padding:
+                                          EdgeInsetsDirectional.fromSTEB(
+                                              0, 0, 0, 6),
+                                          child: Text(
+                                            'Online banking',
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                              fontFamily: 'Readex Pro',
+                                              color: Color(0xFF1A1E25),
+                                              fontSize: 16,
+                                            ),
+                                          ),
                                         ),
                                       ),
                                       Flexible(
                                         child: Align(
                                           alignment:
-                                              AlignmentDirectional(1.00, 0.00),
-                                          child: Text(
-                                            'RM 20.00',
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily: 'Readex Pro',
-                                                  color: Color(0xFF1A1E25),
-                                                  fontSize: 16.0,
-                                                ),
+                                          AlignmentDirectional(1.00, 0.00),
+                                          child: Icon(
+                                            Icons.add_circle_outline,
+                                            color: FlutterFlowTheme.of(context)
+                                                .secondaryText,
+                                            size: 24,
                                           ),
                                         ),
                                       ),
@@ -317,45 +532,53 @@ class _PaymentWidgetState extends State<PaymentWidget> {
                                 ),
                                 Row(
                                   mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment: MainAxisAlignment.start,
                                   children: [
                                     Align(
                                       alignment:
-                                          AlignmentDirectional(-1.00, 0.00),
-                                      child: Text(
-                                        'Total price',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .override(
-                                              fontFamily: 'Readex Pro',
-                                              color: Color(0xFF1A1E25),
-                                              fontSize: 16.0,
-                                              fontWeight: FontWeight.bold,
-                                            ),
+                                      AlignmentDirectional(-1.00, -1.00),
+                                      child: Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0, 0, 10, 0),
+                                        child: ClipRRect(
+                                          borderRadius:
+                                          BorderRadius.circular(0),
+                                          child: Image.asset(
+                                            'assets/images/image_1.png',
+                                            width: 27,
+                                            height: 25,
+                                            fit: BoxFit.cover,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                    Align(
+                                      alignment:
+                                      AlignmentDirectional(-1.00, -1.00),
+                                      child: Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0, 0, 0, 6),
+                                        child: Text(
+                                          'Duitnow QR',
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                            fontFamily: 'Readex Pro',
+                                            color: Color(0xFF1A1E25),
+                                            fontSize: 16,
+                                          ),
+                                        ),
                                       ),
                                     ),
                                     Flexible(
                                       child: Align(
                                         alignment:
-                                            AlignmentDirectional(1.00, 0.00),
-                                        child: Text(
-                                          valueOrDefault<String>(
-                                            formatNumber(
-                                              FFAppState().total + 20,
-                                              formatType: FormatType.custom,
-                                              currency: 'RM ',
-                                              format: '0.00',
-                                              locale: 'en_MY',
-                                            ),
-                                            '0.00',
-                                          ),
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily: 'Readex Pro',
-                                                color: Color(0xFF0068C9),
-                                                fontSize: 16.0,
-                                                fontWeight: FontWeight.bold,
-                                              ),
+                                        AlignmentDirectional(1.00, 0.00),
+                                        child: Icon(
+                                          Icons.add_circle_outline,
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondaryText,
+                                          size: 24,
                                         ),
                                       ),
                                     ),
@@ -363,221 +586,6 @@ class _PaymentWidgetState extends State<PaymentWidget> {
                                 ),
                               ],
                             ),
-                          ),
-                        ),
-                      ),
-                      Container(
-                        width: double.infinity,
-                        height: 270.0,
-                        decoration: BoxDecoration(
-                          color:
-                              FlutterFlowTheme.of(context).secondaryBackground,
-                          borderRadius: BorderRadius.circular(10.0),
-                        ),
-                        child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              24.0, 24.0, 24.0, 24.0),
-                          child: Column(
-                            mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              Align(
-                                alignment: AlignmentDirectional(-1.00, 0.00),
-                                child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 0.0, 27.0),
-                                  child: Text(
-                                    'Pay with',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'Readex Pro',
-                                          color: Color(0xFF1A1E25),
-                                          fontSize: 20.0,
-                                          fontWeight: FontWeight.w600,
-                                        ),
-                                  ),
-                                ),
-                              ),
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 0.0, 20.0),
-                                child: Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: [
-                                    Align(
-                                      alignment:
-                                          AlignmentDirectional(-1.00, -1.00),
-                                      child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 0.0, 10.0, 20.0),
-                                        child: Icon(
-                                          Icons.credit_card_rounded,
-                                          color: FlutterFlowTheme.of(context)
-                                              .secondaryText,
-                                          size: 24.0,
-                                        ),
-                                      ),
-                                    ),
-                                    Column(
-                                      mainAxisSize: MainAxisSize.max,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Align(
-                                          alignment: AlignmentDirectional(
-                                              -1.00, -1.00),
-                                          child: Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 0.0, 6.0),
-                                            child: Text(
-                                              'Debit card',
-                                              style: FlutterFlowTheme.of(
-                                                      context)
-                                                  .bodyMedium
-                                                  .override(
-                                                    fontFamily: 'Readex Pro',
-                                                    color: Color(0xFF1A1E25),
-                                                    fontSize: 16.0,
-                                                  ),
-                                            ),
-                                          ),
-                                        ),
-                                        Text(
-                                          'Accepting Visa, Mastercard, etc',
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily: 'Readex Pro',
-                                                color: Color(0xFF7D7F88),
-                                                fontSize: 13.0,
-                                              ),
-                                        ),
-                                      ],
-                                    ),
-                                    Flexible(
-                                      child: Align(
-                                        alignment:
-                                            AlignmentDirectional(1.00, 0.00),
-                                        child: Icon(
-                                          Icons.add_circle_outline,
-                                          color: FlutterFlowTheme.of(context)
-                                              .secondaryText,
-                                          size: 24.0,
-                                        ),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 0.0, 20.0),
-                                child: Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: [
-                                    Align(
-                                      alignment:
-                                          AlignmentDirectional(-1.00, -1.00),
-                                      child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 0.0, 10.0, 7.0),
-                                        child: Icon(
-                                          Icons.attach_money_outlined,
-                                          color: FlutterFlowTheme.of(context)
-                                              .secondaryText,
-                                          size: 24.0,
-                                        ),
-                                      ),
-                                    ),
-                                    Align(
-                                      alignment:
-                                          AlignmentDirectional(-1.00, -1.00),
-                                      child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 0.0, 0.0, 6.0),
-                                        child: Text(
-                                          'Online banking',
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily: 'Readex Pro',
-                                                color: Color(0xFF1A1E25),
-                                                fontSize: 16.0,
-                                              ),
-                                        ),
-                                      ),
-                                    ),
-                                    Flexible(
-                                      child: Align(
-                                        alignment:
-                                            AlignmentDirectional(1.00, 0.00),
-                                        child: Icon(
-                                          Icons.add_circle_outline,
-                                          color: FlutterFlowTheme.of(context)
-                                              .secondaryText,
-                                          size: 24.0,
-                                        ),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              Row(
-                                mainAxisSize: MainAxisSize.max,
-                                children: [
-                                  Align(
-                                    alignment:
-                                        AlignmentDirectional(-1.00, -1.00),
-                                    child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 0.0, 10.0, 0.0),
-                                      child: ClipRRect(
-                                        borderRadius:
-                                            BorderRadius.circular(0.0),
-                                        child: Image.asset(
-                                          'assets/images/image_1.png',
-                                          width: 27.0,
-                                          height: 25.0,
-                                          fit: BoxFit.cover,
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                  Align(
-                                    alignment:
-                                        AlignmentDirectional(-1.00, -1.00),
-                                    child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 0.0, 0.0, 6.0),
-                                      child: Text(
-                                        'Duitnow QR',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .override(
-                                              fontFamily: 'Readex Pro',
-                                              color: Color(0xFF1A1E25),
-                                              fontSize: 16.0,
-                                            ),
-                                      ),
-                                    ),
-                                  ),
-                                  Flexible(
-                                    child: Align(
-                                      alignment:
-                                          AlignmentDirectional(1.00, 0.00),
-                                      child: Icon(
-                                        Icons.add_circle_outline,
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryText,
-                                        size: 24.0,
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ],
                           ),
                         ),
                       ),
@@ -609,23 +617,21 @@ class _PaymentWidgetState extends State<PaymentWidget> {
                     text: 'Confirm Payment',
                     options: FFButtonOptions(
                       width: double.infinity,
-                      height: 50.0,
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
-                      iconPadding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                      height: 50,
+                      padding: EdgeInsetsDirectional.fromSTEB(24, 0, 24, 0),
+                      iconPadding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                       color: FlutterFlowTheme.of(context).primary,
                       textStyle:
-                          FlutterFlowTheme.of(context).titleSmall.override(
-                                fontFamily: 'Readex Pro',
-                                color: Colors.white,
-                              ),
-                      elevation: 3.0,
+                      FlutterFlowTheme.of(context).titleSmall.override(
+                        fontFamily: 'Readex Pro',
+                        color: Colors.white,
+                      ),
+                      elevation: 3,
                       borderSide: BorderSide(
                         color: Colors.transparent,
-                        width: 1.0,
+                        width: 1,
                       ),
-                      borderRadius: BorderRadius.circular(10.0),
+                      borderRadius: BorderRadius.circular(10),
                     ),
                   ),
                 ),

@@ -100,13 +100,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               params.isEmpty ? NavBarPage(initialPage: 'Home') : HomeWidget(),
         ),
         FFRoute(
-          name: 'Explore',
-          path: '/explore',
-          builder: (context, params) => params.isEmpty
-              ? NavBarPage(initialPage: 'Explore')
-              : ExploreWidget(),
-        ),
-        FFRoute(
           name: 'Purchased',
           path: '/purchased',
           builder: (context, params) => params.isEmpty
